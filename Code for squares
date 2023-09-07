@@ -1,0 +1,38 @@
+void setup() {
+
+  size (1000, 1000);
+}
+void draw() {
+  background(255);
+  stroke(0);
+  
+  square(90, 110, 558);
+  square(138, 164, 447);
+  square(186, 219, 346);
+  square(247, 293, 215);
+  square(295, 347, 112);
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   if(frameCount == 1) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png"); 
+    }
+   }
