@@ -1,0 +1,8 @@
+void draw() {
+  float percent = float(counter) / totalFrames;
+  render(percent);
+  saveFrame("output/gif-"+nf(counter,3)+".png");
+  counter++;
+  if (counter == totalFrames) { exit ();
+  }
+}
