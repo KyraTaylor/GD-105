@@ -1,20 +1,13 @@
-float[] circleY = {50, 100, 150, 200, 250};
+int[] nums = {30, 40, 10, 5};
 
 void setup() {
-  size(300, 300);
+  size(400,400);
 }
 
-void draw() {
-  background(50);
 
-  for (int i = 0; i < 5; i++) {
-    float circleX = 50 * (i + 1);
-    ellipse(circleX, circleY[i], 25, 25);
-
-    circleY[i]++;
-
-    if (circleY[i] > height) {
-      circleY[i] = 0;
-    }
-  }
+void draw(){
+  background(0);
+  stroke(255);
+  noFill();
+  ellipse(100, 200, nums[1], nums[1]);
 }

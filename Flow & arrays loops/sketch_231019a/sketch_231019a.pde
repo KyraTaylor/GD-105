@@ -1,19 +1,28 @@
 void setup(){
-  size(640, 360);
+  size(640,360);
 }
-
+    
 void draw(){
   background(0);
   
-  if (mouseX > 100) {
-    fill(255, 0, 0);
-    square(300,100,50,50);
+  if((mouseX>width/2) & (mouseY>height/2)){
+    fill(0,255,0);
+    rect(320,180,320,180);
+  }else if(mouseX>width/2 & mouseY<height/2){
+    fill(255,0,0);
+    rect(320,0,320,180);
+  }else if(mouseX<width/2 & mouseY>height/2){
+    fill(0,0,255);
+    rect(0,180,320,180);
+  }else{
+    fill(250,255,0);
+    rect(0,0,320,180);
   }
   
- if (mouseX > 200) {
-    fill(0,255,0);
-    square(300,300,50,50);
- }
   stroke(255);
-  line(100,0, 100, height);
-  line(200, 0, 200, height);
+  line(0,180,width,height/2);
+ 
+  stroke(255);
+  line(320,0,width/2,height);
+ 
+}
