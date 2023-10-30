@@ -33,7 +33,7 @@ void draw() {
   popMatrix();
   
   pushMatrix();
-  translate(width*0.5, height*0.5);
+  translate(width*0.5, height*0.2);
   rotate(frameCount / -100.0);
   star(33, 22, 14, 84, 5); 
   popMatrix();
@@ -44,13 +44,24 @@ void draw() {
   star(33, 22, 14, 84, 5); 
   popMatrix();
   
+   pushMatrix();
+  translate(width*0.5, height*0.5);
+  rotate(frameCount / -100.0);
+  star(33, 22, 14, 84, 5); 
+  popMatrix();
+  
+  pushMatrix();
+  translate(width*0.5, height*0.8);
+  rotate(frameCount / -100.0);
+  star(33, 22, 14, 84, 5); 
+  popMatrix();
 }
   }
 
   stroke(#fefcfd);
   strokeWeight(height/7);
   noFill();
-  ellipse(width/2, height/2, height-height/10, height-height/3);
+  ellipse(width/2, height/2, height+height/6, height+height/6);
   
 }
 
