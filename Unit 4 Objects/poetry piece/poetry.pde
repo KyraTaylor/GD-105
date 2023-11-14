@@ -1,13 +1,14 @@
+PFont f;
+String message = "Our love still young";//whatever the text goes here
+
 void setup() {
-  size(400, 200);
-  background(255);
-  fill(0);
-  textAlign(CENTER, CENTER);
-  textSize(20);
+  size(600, 600);
+  f = createFont("Arial", 20, true); //creates the font used in processing
+  fill(#030302); // fills the color of the text
 }
 
 void draw() {
-  text("Our love still young,", width / 2, height / 2 - 20);
-  text("our marriage new,", width / 2, height / 2 + 20);
+ background(255);
+ textFont(f);
+ text(message,10,height/2); // moves and rotates text
 }
- 

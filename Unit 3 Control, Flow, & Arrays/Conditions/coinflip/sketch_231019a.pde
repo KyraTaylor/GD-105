@@ -40,3 +40,7 @@ void draw() {
     line(0, 180, width, 180);
   }
 }
+void mouseClicked() {
+  save("output.png");
+  println(frameCount + ": saved as output.png");
+}

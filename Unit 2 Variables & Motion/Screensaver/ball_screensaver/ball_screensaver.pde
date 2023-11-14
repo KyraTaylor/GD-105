@@ -43,10 +43,10 @@ void draw() {
     if(y[i] < 0 || y[i] > height){
       ySpeed[i] *= -1; //ball goes in another direction and ends up leaving the screen
     }
-    }
+      
     
-    fill(r[i], g[i], b[i]);
-    ellipse(x[i], y[i], size[i], size[i]);
+   fill(r[i], g[i], b[i]);
+   ellipse(x[i], y[i], size[i], size[i]);
 
   }
 }

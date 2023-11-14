@@ -1,4 +1,4 @@
-//source: https://www.si.edu/object/homage-square-glow%3Ahmsg_72.3
+//source: https://www.kemperartmuseum.wustl.edu/node/11221
 
 void setup() {
 
@@ -7,45 +7,20 @@ void setup() {
 }
   void draw() {
     background(255);
-    fill(239,169,44,255);
-    square(90, 110, 558); 
-    fill(212,27,95,255);
-    square(138, 164, 447);
-    fill(187,0,75,255);
-    square(186, 219, 346);
-    fill(235,126,21,255);
-    square(247, 293, 215);
+    fill(39,77,204,255);
+    square(9, 11, 611); 
+    fill(35,70,90,255);
+    square(65, 95, 488);
+    fill(132,133,154,255);
+    square(135, 203, 342);
+    fill(234,173,67,255);
+    square(195, 291, 221);
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if (frameCount == 1) {
-      String filename = "output";
-      save(filename + ".png");
-      print("canvas saved as " + filename + ".png");
-    }
   }
-
-
-
-
-
+ void mouseClicked() {
+  save("output.png");
+  println(frameCount + ": saved as output.png");
+}
 
 
 
