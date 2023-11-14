@@ -14,8 +14,8 @@ class Particle {
     vel = PVector.random2D();
     acc = new PVector(0, 0);
     col = c;
-    noseLength = 52;
-    wingSpan = 33;
+    noseLength = 50;
+    wingSpan = 30;
   }
   
   // methods

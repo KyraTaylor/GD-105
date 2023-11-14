@@ -1,4 +1,4 @@
-int numBirds = 1000;
+int numBirds = 500;
 Particle[] flock;
 
 void setup() {
