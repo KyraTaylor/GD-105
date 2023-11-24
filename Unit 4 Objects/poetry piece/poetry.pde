@@ -1,4 +1,5 @@
 PFont f;
+//array of strings to store the lines of a love poem
 String[] Lovepoem = {
   "Our love still young, our marriage new,",
   "Robert and I felt blackness as",
@@ -34,10 +35,10 @@ String[] Lovepoem = {
 void setup() {
   size(1000, 1000);
   background(255);
-  textAlign(LEFT);
+  textAlign(LEFT); //keeps text to the left of the screen
   f = createFont("Arial", 20, true); //creates the font used in processing
   fill(#030302); // fills the color of the text
-    for (int i = 0; i < Lovepoem.length; i++) {
+    for (int i = 0; i < Lovepoem.length; i++) { // loops each line so the display of the poem on the screen
     text(Lovepoem[i], 20, (i + 2) * 18);
   }
 }
