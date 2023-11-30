@@ -1,11 +1,10 @@
 //source https://www.youtube.com/playlist?list=PLAE4MzuQm3Gwj2QLcqpepbTuIuzi_18mS took me 1-2 hours but have fun! :D
 PImage bg, bird, toppipe, downpipe; //character player, background, pipes
-int bgx, bgy, g, Vby; //background and velocity
+int bgx, bgy, bx, by, g, Vby; //background and velocity
 int[] pipeX, pipeY; //arrays for pipes
 int gameState, score; // score testing
-float bx, by, birdWidth, birdHeight; // flappy itself and height
-float downpipeX, downpipeY, downpipeWidth, downpipeHeight; //mario pipes let's go
-float toppipeX, toppipeY, toppipeWidth, toppipeHeight; 
+
+
 
 void setup() //runs once
 {
@@ -75,27 +74,19 @@ void setPipes() //sets up the position of pipe and collisions
   {
     image(downpipe, pipeX[i], pipeY[i]); // pipe image
     image(toppipe, pipeX[i], pipeY[i] + 680); // another pipe image
-    downpipeX = pipeX[i]; //variables for pipes
-    downpipeY = pipeY[i];
-    downpipeWidth = 50;
-    downpipeHeight = 300;
-    
-    toppipeX = pipeX[i]; //sets the variables for the pipe
-    toppipeY = pipeY[i] + 680;
-    toppipeWidth = 50; // width based on pipe image
-    toppipeHeight = 300; //height on pipe image
-    
+   
     pipeX[i]-= 2; // pipes stay on the left 
     if (pipeX[i] < -200) // once pipe is off screen it gets deleted and position will be reseted
     {
       pipeX[i] = width;
     }
-     if (bx + birdWidth > downpipeX && bx < downpipeX + downpipeWidth) {
-      if (!(by + birdHeight > downpipeY && by < downpipeY + downpipeHeight)) {//flappy has to hit the pipes based on his width and height
-      }
+       if (bx > (pipeX[i]-59) && bx < pipeX[i] + 131) //flappy has to hit the pipes based on his width and height
+    {
+      if (!(by > pipeY[i] + 347 && by < pipeY[i] + (347 + 333-47)))
+      {
         gameState = 1;
       }
-        else if (bx == downpipeX || bx == downpipeX + 1) {
+       else if ((bx==pipeX[i]) || bx == pipeX[i] + 1)
      
       {
       score++; //score will increase based on how you pass the pipes without dying
@@ -118,8 +109,27 @@ void bird() //flappy finally appears on the screen
 }
 
 void mousePressed() // you can try mouseclick too but I prefer mousepressed 
-{
+{ if (gameState == -1) {
+    resetGame();
+  } else if (gameState == 1) {
+    resetGame();
+  } else {
   Vby = -15;
+  }
+}
+
+void resetGame() {
+  bx = 100;
+  by = 50;
+  g = 1;
+  pipeX = new int[5];
+  pipeY = new int[pipeX.length];
+  for (int i = 0; i < pipeX.length; i++) {
+    pipeX[i] = width + 200 * i;
+    pipeY[i] = (int) random(-350, 0);
+  }
+  gameState = 0;
+  score = 0;
 }
 
 void setBg() //background is in an infinite loop so don't worry
