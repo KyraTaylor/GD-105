@@ -1,8 +1,11 @@
 //source https://www.youtube.com/playlist?list=PLAE4MzuQm3Gwj2QLcqpepbTuIuzi_18mS took me 1-2 hours but have fun! :D
 PImage bg, bird, toppipe, downpipe; //character player, background, pipes
-int bgx, bgy, bx, by, g, Vby; //background and velocity
+int bgx, bgy, g, Vby; //background and velocity
 int[] pipeX, pipeY; //arrays for pipes
-int gameState, score;
+int gameState, score; // score testing
+float bx, by, birdWidth, birdHeight; // flappy itself and height
+float downpipeX, downpipeY, downpipeWidth, downpipeHeight; //mario pipes let's go
+float toppipeX, toppipeY, toppipeWidth, toppipeHeight; 
 
 void setup() //runs once
 {
@@ -33,9 +36,10 @@ void draw()
   }
  else if (gameState==0)
   {
-    setBg();
-    setPipes();
+    setBg(); //sets background
+    setPipes(); //sets the pipes
     bird(); // puts flappy on the top
+    showScore();
   } else
   {
     fill(255);
@@ -43,11 +47,13 @@ void draw()
   }
 }
 
-void score() //this shows the player score
+int currentScore = 0;
+
+void showScore() //this shows the player score
 {
   fill(0);
   textSize(32);
-  text("Score: "+ score, width - 170, 40);
+  text("Score: "+ currentScore, width - 170, 40);
 }
 
 void startScreen() //instructions
@@ -67,20 +73,29 @@ void setPipes() //sets up the position of pipe and collisions
 {
   for (int i = 0; i < pipeX.length; i++)
   {
-    image(downpipe, pipeX[i], pipeY[i]);
-    image(toppipe, pipeX[i], pipeY[i] + 680);
+    image(downpipe, pipeX[i], pipeY[i]); // pipe image
+    image(toppipe, pipeX[i], pipeY[i] + 680); // another pipe image
+    downpipeX = pipeX[i]; //variables for pipes
+    downpipeY = pipeY[i];
+    downpipeWidth = 50;
+    downpipeHeight = 300;
+    
+    toppipeX = pipeX[i]; //sets the variables for the pipe
+    toppipeY = pipeY[i] + 680;
+    toppipeWidth = 50; // width based on pipe image
+    toppipeHeight = 300; //height on pipe image
+    
     pipeX[i]-= 2; // pipes stay on the left 
     if (pipeX[i] < -200) // once pipe is off screen it gets deleted and position will be reseted
     {
       pipeX[i] = width;
     }
-    if (bx + 40 > pipeX[i] && bx < pipeX[i] + 50)  //flappy has to hit the pipes based on his width and height
-    {
-      if (!(by + 30 > pipeY[i] && by < pipeY[i] + 300))  //collision for pipes
-      {
+     if (bx + birdWidth > downpipeX && bx < downpipeX + downpipeWidth) {
+      if (!(by + birdHeight > downpipeY && by < downpipeY + downpipeHeight)) {//flappy has to hit the pipes based on his width and height
+      }
         gameState = 1;
       }
-       else if ((bx==pipeX[i]) || bx == pipeX[i] + 1)
+        else if (bx == downpipeX || bx == downpipeX + 1) {
      
       {
       score++; //score will increase based on how you pass the pipes without dying
@@ -88,7 +103,6 @@ void setPipes() //sets up the position of pipe and collisions
     }
   }
 }
-
 
 
 void bird() //flappy finally appears on the screen
