@@ -52,7 +52,7 @@ void showScore() //this shows the player score
 {
   fill(0);
   textSize(32);
-  text("Score: "+ currentScore, width - 170, 40);
+  text("Score: " + currentScore, width - 170, 40);
 }
 
 void startScreen() //instructions
@@ -118,7 +118,7 @@ void mousePressed() // you can try mouseclick too but I prefer mousepressed
   }
 }
 
-void resetGame() {
+void resetGame() { //resets the game
   bx = 100;
   by = 50;
   g = 1;

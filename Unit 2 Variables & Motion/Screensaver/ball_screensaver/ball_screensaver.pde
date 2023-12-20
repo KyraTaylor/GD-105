@@ -12,7 +12,8 @@ float[] b = new float[ballCount];
 
 void setup() {
   size(800, 600);
- 
+  fullScreen();
+  
   //ball color is randomized and height
   for(int i = 0; i < ballCount; i++){
     x[i] = random(width);
@@ -28,6 +29,7 @@ void setup() {
 
 void draw() {
   background(0);
+
 
       //draw each ball
   for(int i = 0; i < ballCount; i++){
